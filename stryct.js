@@ -149,16 +149,16 @@ let obj4 = {
 obj4.objComputed.maFunction();
 
 //21: Compléter le code ci-dessous afin d’avoir les résultats affichés en commentaire
-// let ids = {
-//     next: 0
-//     get(){
-//         return 0 ;
-//     }
-// };
-// console.log(ids.get());
-// // 0
-// console.log(ids.get());
-// // 1
+let ids = {
+    next: 0,
+    get() {
+        return this.next++;
+    }
+};
+console.log(ids.get());
+// 0
+console.log(ids.get());
+// 1
 
 //22: Créer deux letiables a, b contenu dans un tableau en utilisant le principe d’assignement par
 // destruction
@@ -178,18 +178,19 @@ let film = {
 };
 
 let {nom, Année} = film;
-console.log("nom : "+ nom, "Année : " +Année);
+console.log("nom : " + nom, "Année : " + Année);
 
 //24: Créer une letiable like, qui récupère la valeur Like du film ci-dessus utilisant le principe
 // d’assignement par destruction et afficher à l’écran.
 
 let {Like} = film;
-console.log("Like : "+ Like);
+console.log("Like : " + Like);
 
 
-function h ({name ,val}){
+function h({name, val}) {
     console.log(name, val);
 }
+
 //25: Pouvez-vous expliquer le code ci-dessus ?
 /*
 retourne les params de l'objet par le nom de la clé et sa valeurs
@@ -197,17 +198,19 @@ retourne les params de l'objet par le nom de la clé et sa valeurs
 
 //26: Créer une fonction qui prends 1 objet javascript, cette objet est détruit avec la variable a. Par la
 // suite, exécuter cette fonction // Ex. maFunction({ a: 1, b: 1});
-
-
+const maFunction = ({a}) => console.log('a : ', a);
+maFunction({a: 1, b: 1});
 
 
 //27: Créer une fonction qui prends 1 objet javascript, cette objet est détruit avec deux variables a et
 // b. Par la suite exécuter cette fonction // Ex. maFunction2({ a: 1, b: 1});
-
+const maFunction2 = ({a, b}) => console.log(a + b);
+maFunction({a: 1, b: 1});
 
 
 //28: Créer une classe vide et exécuter cette classe
-class Rectangle {}
+class Rectangle {
+}
 
 console.log(new Rectangle());
 
@@ -215,7 +218,7 @@ console.log(new Rectangle());
 // affiche.
 // a. Maintenant, créer une instance de classe avec deux paramètres
 // b. Ensuite exécuter la méthode affiche qui doit retourner la valeur a et b multiplié
-class Param{
+class Param {
     constructor(a, b) {
         this.a = a;
         this.b = b;
@@ -225,7 +228,8 @@ class Param{
         return this.a * this.b;
     }
 }
-console.log(new Param(2,2).affiche())
+
+console.log(new Param(2, 2).affiche())
 
 
 //30: Créer la classe et les méthodes qui doivent retourner cette valeur
@@ -245,4 +249,4 @@ class Point {
     }
 }
 
-console.log(new Point(1, 2).plus(new Point(2,1)));
+console.log(new Point(1, 2).plus(new Point(2, 1)));
